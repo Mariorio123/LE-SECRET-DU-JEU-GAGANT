@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
+            --noir: #121212;
+            --noir-clair: #1E1E1E;
+            --noir-card: #252525;
+            --text: #E0E0E0;
+            --text-light: #B0B0B0;
             --gold: #FFD700;
             --gold-dark: #D4AF37;
-            --premium: linear-gradient(135deg, #1e3c72, #2a5298);
-            --premium-dark: #0f2c5a;
-            --text: #333;
-            --light: #f9f9f9;
+            --success: #28A745;
         }
         
         body {
@@ -21,24 +23,34 @@
             max-width: 1000px;
             margin: 0 auto;
             padding: 0;
-            background-color: #f5f7fa;
             color: var(--text);
             position: relative;
             overflow-x: hidden;
+            background-color: var(--noir);
+            background-image: url('https://cdn.turfomania.fr/mobile/android/actualites/img-9942.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+        }
+
+        .content-overlay {
+            background-color: rgba(18, 18, 18, 0.85);
+            padding-bottom: 30px;
         }
         
         .premium-banner {
-            background: var(--premium);
-            color: white;
+            background: linear-gradient(90deg, #000000 0%, var(--noir-clair) 100%);
+            color: var(--gold);
             text-align: center;
             padding: 15px;
             font-weight: bold;
             font-size: 1.2em;
             letter-spacing: 1px;
             text-transform: uppercase;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: relative;
             overflow: hidden;
+            border-bottom: 2px solid var(--gold);
         }
         
         .premium-banner::after {
@@ -50,7 +62,7 @@
             bottom: 0;
             background: linear-gradient(90deg, 
                           transparent, 
-                          rgba(255,255,255,0.2), 
+                          rgba(255,215,0,0.1), 
                           transparent);
             animation: shine 3s infinite;
         }
@@ -61,17 +73,16 @@
         }
         
         header {
-            background: white;
+            background: var(--noir-clair);
             padding: 30px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             margin-bottom: 30px;
             position: relative;
             border-bottom: 5px solid var(--gold);
         }
         
         h1 {
-            color: var(--premium-dark);
+            color: var(--gold);
             font-size: 2.5em;
             margin: 0;
             padding: 0;
@@ -86,7 +97,7 @@
             top: -15px;
             right: -40px;
             background: var(--gold);
-            color: var(--premium-dark);
+            color: var(--noir);
             font-size: 0.5em;
             font-weight: bold;
             padding: 3px 10px;
@@ -94,22 +105,12 @@
             transform: rotate(15deg);
         }
         
-        .hero-image {
-            width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin: 20px 0;
-            border: 3px solid white;
-            outline: 1px solid #eee;
-        }
-        
         .guarantee-badge {
-            background: var(--gold);
-            color: var(--premium-dark);
+            background: rgba(255,215,0,0.1);
+            color: var(--gold);
+            border: 1px solid var(--gold);
             display: inline-block;
-            padding: 10px 20px;
+            padding: 15px 25px;
             border-radius: 30px;
             font-weight: bold;
             margin: 20px auto;
@@ -124,14 +125,14 @@
         }
         
         .pricing-section {
-            background: white;
+            background: var(--noir-card);
             padding: 40px;
             border-radius: 10px;
             margin: 30px 0;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
             position: relative;
             overflow: hidden;
-            border: 1px solid #eee;
+            border: 1px solid #333;
         }
         
         .pricing-section::before {
@@ -141,15 +142,15 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, var(--gold), var(--premium-dark));
+            background: linear-gradient(90deg, var(--gold), var(--noir));
         }
         
         h2 {
-            color: var(--premium-dark);
+            color: var(--gold);
             font-size: 1.8em;
             margin-top: 0;
             padding-bottom: 10px;
-            border-bottom: 2px solid #eee;
+            border-bottom: 2px solid #333;
             position: relative;
         }
         
@@ -171,19 +172,19 @@
         }
         
         .pricing-card {
-            background: white;
+            background: var(--noir-clair);
             border-radius: 10px;
             padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
-            border: 1px solid #eee;
+            border: 1px solid #333;
             position: relative;
             overflow: hidden;
         }
         
         .pricing-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
             border-color: var(--gold);
         }
         
@@ -193,7 +194,7 @@
             top: 10px;
             right: -30px;
             background: var(--gold);
-            color: var(--premium-dark);
+            color: var(--noir);
             font-weight: bold;
             padding: 3px 30px;
             transform: rotate(45deg);
@@ -204,19 +205,19 @@
         .price {
             font-size: 2em;
             font-weight: bold;
-            color: var(--premium-dark);
+            color: var(--gold);
             margin: 15px 0;
         }
         
         .price span {
             font-size: 0.6em;
-            color: #777;
+            color: var(--text-light);
             font-weight: normal;
         }
         
         .btn-subscribe {
             display: block;
-            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            background: linear-gradient(135deg, var(--success), #1e7d34);
             color: white;
             padding: 15px 25px;
             border-radius: 8px;
@@ -226,7 +227,7 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.4);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
             width: 100%;
             text-align: center;
             font-size: 1.1em;
@@ -243,15 +244,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(rgba(255,255,255,0.2), transparent);
             transform: translateY(-100%);
             transition: transform 0.3s ease;
         }
         
         .btn-subscribe:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(46, 125, 50, 0.6);
-            background: linear-gradient(135deg, #2E7D32, #4CAF50);
+            box-shadow: 0 10px 25px rgba(40, 167, 69, 0.6);
+            background: linear-gradient(135deg, #1e7d34, var(--success));
         }
         
         .btn-subscribe:hover::after {
@@ -264,32 +265,33 @@
         }
         
         .testimonials {
-            background: var(--light);
+            background: var(--noir-card);
             padding: 40px;
             border-radius: 10px;
             margin: 30px 0;
         }
         
         .disclaimer {
-            background: #fff9e6;
+            background: rgba(255,215,0,0.05);
             padding: 20px;
             border-radius: 8px;
             margin: 30px 0;
             border-left: 4px solid var(--gold);
             font-style: italic;
+            color: var(--text-light);
         }
         
         .contact-box {
-            background: white;
+            background: var(--noir-card);
             padding: 30px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             margin: 30px 0;
         }
         
         .contact-box a {
-            color: var(--premium-dark);
+            color: var(--gold);
             font-weight: bold;
             text-decoration: none;
         }
@@ -307,6 +309,7 @@
             padding: 10px 0;
             position: relative;
             padding-left: 30px;
+            color: var(--text-light);
         }
         
         .feature-list li::before {
@@ -322,274 +325,271 @@
             animation: flash 2s infinite;
             text-align: center;
             font-weight: bold;
-            color: var(--premium-dark);
+            color: var(--gold);
             margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 8px;
+            border: 1px dashed var(--gold);
         }
         
         @keyframes flash {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.7; }
         }
+
+        .pmu-section {
+            background: rgba(37, 37, 37, 0.9);
+            border-radius: 15px;
+            padding: 15px 20px;
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .pmu-section h2 {
+            text-align: center;
+            color: var(--gold);
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .pmu-section .date {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: var(--text-light);
+        }
+
+        .pmu-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .pmu-box {
+            background: var(--noir-clair);
+            border-left: 5px solid var(--gold);
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        .pmu-box h3 {
+            margin: 0 0 8px;
+            color: var(--text);
+            font-size: 16px;
+        }
+
+        .pmu-numbers {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--text);
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .pmu-numbers span {
+            background: rgba(0,128,0,0.2);
+            padding: 8px 12px;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: center;
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        .highlight-orange {
+            background-color: rgba(255,165,0,0.2);
+        }
+
+        .highlight-blue {
+            background-color: rgba(0,0,255,0.2);
+        }
+
+        .highlight-green {
+            background-color: rgba(0,128,0,0.2);
+        }
     </style>
 </head>
 <body>
-   <style>
-    .pmu-section {
-        background: #f9f9f9;
-        border-radius: 15px;
-        padding: 20px 30px;
-        margin: 30px auto;
-        max-width: 600px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        font-family: 'Arial', sans-serif;
-    }
+    <div class="content-overlay">
+        <div class="btn-resultats-container" style="text-align: center; margin-top: 20px;">
+            <button id="voirResultatsBtn" class="btn-subscribe" onclick="toggleResultats()">
+                Voir plus résultats
+            </button>
+        </div>
 
-    .pmu-section h2 {
-        text-align: center;
-        color: #2b6b2f;
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
+        <!-- Section cachée pour les résultats (taille réduite) -->
+        <div id="resultats" style="display: none;">
+            <div class="pmu-section">
+                <h2>EXPERT DU TURF</h2>
+                <div class="date">Date : 12/04/2025</div>
+                
+                <div class="pmu-grid">
+                    <div class="pmu-box highlight-green">
+                        <h3>Tiercé +100%</h3>
+                        <div class="pmu-numbers">
+                            <span>15</span><span>3</span><span>4</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pmu-box highlight-orange">
+                        <h3>Base 100%</h3>
+                        <div class="pmu-numbers">
+                            <span>15</span>
+                        </div>
+                    </div>
 
-    .pmu-section .date {
-        text-align: center;
-        font-weight: bold;
-        margin-bottom: 20px;
-        font-size: 18px;
-        color: #555;
-    }
+                    <div class="pmu-box highlight-blue">
+                        <h3>Quarté ordre +100%</h3>
+                        <div class="pmu-numbers">
+                            <span>15</span><span>3</span><span>4</span><span>13</span>
+                        </div>
+                    </div>
 
-    .pmu-grid {
-        display: grid;
-        gap: 15px;
-    }
+                    <div class="pmu-box highlight-orange">
+                        <h3>Couplé sûr 100%</h3>
+                        <div class="pmu-numbers">
+                            <span>15</span><span>13</span>
+                        </div>
+                    </div>
 
-    .pmu-box {
-        background: white;
-        border-left: 5px solid #2b6b2f;
-        padding: 15px;
-        border-radius: 10px;
-    }
-
-    .pmu-box h3 {
-        margin: 0 0 10px;
-        color: #333;
-    }
-
-    .pmu-numbers {
-        font-size: 20px;
-        font-weight: bold;
-        color: #1a1a1a;
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .pmu-numbers span {
-        background: #e0ffe0;
-        padding: 10px 15px;
-        border-radius: 5px;
-        display: inline-block;
-        text-align: center;
-        width: 50px;
-        height: 50px;
-        font-size: 18px;
-    }
-
-    .highlight-orange {
-        background-color: #ffe5cc;
-    }
-
-    .highlight-blue {
-        background-color: #e0f0ff;
-    }
-
-    .highlight-green {
-        background-color: #e6ffe6;
-    }
-</style>
-
-<div class="btn-resultats-container" style="text-align: center; margin-top: 20px;">
-    <button id="voirResultatsBtn" class="btn-subscribe" onclick="toggleResultats()">
-        Voir plus résultats
-    </button>
-</div>
-
-<!-- Section cachée pour les résultats -->
-<div id="resultats" style="display: none;">
-    <div class="pmu-section">
-        <h2>EXPERT DU TURF</h2>
-        <div class="date">Date : 12/04/2025</div>
-        
-        <div class="pmu-grid">
-            <div class="pmu-box highlight-green">
-                <h3>Tiercé +100%</h3>
-                <div class="pmu-numbers">
-                    <span>15</span><span>3</span><span>4</span>
-                </div>
-            </div>
-            
-            <div class="pmu-box highlight-orange">
-                <h3>Base 100%</h3>
-                <div class="pmu-numbers">
-                    <span>15</span>
-                </div>
-            </div>
-
-            <div class="pmu-box highlight-blue">
-                <h3>Quarté ordre +100%</h3>
-                <div class="pmu-numbers">
-                    <span>15</span><span>3</span><span>4</span><span>13</span>
-                </div>
-            </div>
-
-            <div class="pmu-box highlight-orange">
-                <h3>Couplé sûr 100%</h3>
-                <div class="pmu-numbers">
-                    <span>15</span><span>13</span>
-                </div>
-            </div>
-
-            <div class="pmu-box highlight-green">
-                <h3>Quinté ordre 100%</h3>
-                <div class="pmu-numbers">
-                    <span>15</span><span>3</span><span>4</span><span>13</span><span>12</span>
+                    <div class="pmu-box highlight-green">
+                        <h3>Quinté ordre 100%</h3>
+                        <div class="pmu-numbers">
+                            <span>15</span><span>3</span><span>4</span><span>13</span><span>12</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <div class="premium-banner">
+            <i class="fas fa-crown"></i> ABONNEMENT PRONOSTICS PREMIUM <i class="fas fa-crown"></i>
+        </div>
+        
+        <header>
+            <h1>LES MEILLEURS PRONOSTICS PMU</h1>
+        </header>
+        
+        <div style="padding: 0 30px;">
+            <div class="guarantee-badge">
+                <i class="fas fa-trophy"></i> GARANTIE DE GAINS 3 À 4 FOIS PAR SEMAINE
+            </div>
+            
+            <div class="pricing-section">
+                <h2>VOTRE AVANTAGE COMPÉTITIF</h2>
+                <p>
+                    Un cheval du jour + Un tiercé + un Quarté + le prono du Quinté envoyé selon le type d'abonnement<br>
+                    Nous vous garantissons de gagner trois à quatre fois l'ordre ou le désordre par semaine
+                </p>
+                
+                <div class="limited-offer">
+                    <i class="fas fa-clock"></i> OFFRES LIMITÉES - ABONNEZ-VOUS MAINTENANT !
+                </div>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>1 JOUR</h3>
+                        <div class="price">5 000fr <span>/ jour</span></div>
+                        <ul class="feature-list">
+                            <li>Pronostics complets</li>
+                            <li>Envoi immédiat</li>
+                            <li>Accès premium</li>
+                        </ul>
+                        <a href="https://pay.lygosapp.com//link/aed53b6d-e361-4db8-bbad-ecc7b31835e0" class="btn-subscribe" target="_blank">
+                            JE M'ABONNE <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>3 JOURS</h3>
+                        <div class="price">10 500fr <span>/ 3 jours</span></div>
+                        <ul class="feature-list">
+                            <li>Économisez 4 500fr</li>
+                            <li>Pronostics complets</li>
+                            <li>Meilleur rapport qualité/prix</li>
+                        </ul>
+                        <a href="https://pay.lygosapp.com//link/b51a85ee-364a-4f5f-b6fb-bbf24b766362" class="btn-subscribe" target="_blank">
+                            JE M'ABONNE <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="pricing-card popular">
+                        <h3>1 SEMAINE</h3>
+                        <div class="price">25 000fr <span>/ semaine</span></div>
+                        <ul class="feature-list">
+                            <li>Le plus populaire</li>
+                            <li>Couverture complète</li>
+                            <li>Résultats garantis</li>
+                        </ul>
+                        <a href="https://pay.lygosapp.com//link/4dbbbc8d-86f1-4ff8-9cd0-ec5e6c60bcb5" class="btn-subscribe" target="_blank">
+                            JE M'ABONNE <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>2 SEMAINES</h3>
+                        <div class="price">35 000fr <span>/ 2 semaines</span></div>
+                        <ul class="feature-list">
+                            <li>Économisez 15 000fr</li>
+                            <li>Suivi prolongé</li>
+                            <li>Analyse approfondie</li>
+                        </ul>
+                        <a href="https://pay.lygosapp.com//link/8189192a-973d-42fd-8753-fe59fdd133f0" class="btn-subscribe" target="_blank">
+                            JE M'ABONNE <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>1 MOIS</h3>
+                        <div class="price">55 000fr <span>/ mois</span></div>
+                        <ul class="feature-list">
+                            <li>Le plus économique</li>
+                            <li>Accès complet</li>
+                            <li>Support prioritaire</li>
+                        </ul>
+                        <a href="https://pay.lygosapp.com//link/d6ee9e05-d1fc-413f-bb1f-769f0bbfec6a" class="btn-subscribe" target="_blank">
+                            JE M'ABONNE <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <p>
+                    (non renouvelable automatiquement)<br>
+                    Pronostics envoyés par e-mail automatiquement après votre inscription (ou le matin vers 10h30 les week-ends et jours fériés)
+                </p>
+            </div>
+            
+            <div class="contact-box">
+                <h3><i class="fas fa-envelope"></i> CONTACT</h3>
+                <p>Pour toute question : <a href="mailto:nathaliedopez360@gmail.com">nathaliedopez360@gmail.com</a></p>
+            </div>
+            
+            <div class="disclaimer">
+                Note : Le turf n'est pas une science exacte. Gérez votre budget avec prudence. C'est nous qui donnons les pronostics, mais c'est Dieu qui donne la victoire.
+            </div>
+        </div>
     </div>
-</div>
 
-<script>
-   
+    <script>
+        function toggleResultats() {
+            var resultatsSection = document.getElementById("resultats");
+            var btn = document.getElementById("voirResultatsBtn");
 
-    function toggleResultats() {
-        var resultatsSection = document.getElementById("resultats");
-        var btn = document.getElementById("voirResultatsBtn");
-
-        // Si les résultats sont actuellement cachés, les afficher
-        if (resultatsSection.style.display === "none") {
-            resultatsSection.style.display = "block";
-            btn.innerHTML = "Voir moins de résultats"; // Modifier le texte du bouton
-        } else {
-            resultatsSection.style.display = "none";
-            btn.innerHTML = "Voir plus résultats"; // Revenir au texte original du bouton
+            if (resultatsSection.style.display === "none") {
+                resultatsSection.style.display = "block";
+                btn.innerHTML = "Voir moins de résultats";
+            } else {
+                resultatsSection.style.display = "none";
+                btn.innerHTML = "Voir plus résultats";
+            }
         }
-    }
-</script>
-
-
-
-
-
-    <div class="premium-banner">
-        <i class="fas fa-crown"></i> ABONNEMENT PRONOSTICS PREMIUM <i class="fas fa-crown"></i>
-    </div>
-    
-    <header>
-        <h1>LES MEILLEURS PRONOSTICS PMU</h1>
-    </header>
-    
-    <div style="padding: 0 30px;">
-        <img src="https://cdn.turfomania.fr/mobile/android/actualites/img-9942.jpg" alt="Pronostics PMU Premium" class="hero-image">
-        
-        <div class="guarantee-badge">
-            <i class="fas fa-trophy"></i> GARANTIE DE GAINS 3 À 4 FOIS PAR SEMAINE
-        </div>
-        
-        <div class="pricing-section">
-            <h2>VOTRE AVANTAGE COMPÉTITIF</h2>
-            <p>
-                Un cheval du jour + Un tiercé + un Quarté + le prono du Quinté envoyé selon le type d'abonnement<br>
-                Nous vous garantissons de gagner trois à quatre fois l'ordre ou le désordre par semaine
-            </p>
-            
-            <div class="limited-offer">
-                <i class="fas fa-clock"></i> OFFRES LIMITÉES - ABONNEZ-VOUS MAINTENANT !
-            </div>
-            
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>1 JOUR</h3>
-                    <div class="price">5 000fr <span>/ jour</span></div>
-                    <ul class="feature-list">
-                        <li>Pronostics complets</li>
-                        <li>Envoi immédiat</li>
-                        <li>Accès premium</li>
-                    </ul>
-                    <a href="https://pay.lygosapp.com//link/aed53b6d-e361-4db8-bbad-ecc7b31835e0" class="btn-subscribe" target="_blank">
-                        JE M'ABONNE <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <div class="pricing-card">
-                    <h3>3 JOURS</h3>
-                    <div class="price">10 500fr <span>/ 3 jours</span></div>
-                    <ul class="feature-list">
-                        <li>Économisez 4 500fr</li>
-                        <li>Pronostics complets</li>
-                        <li>Meilleur rapport qualité/prix</li>
-                    </ul>
-                    <a href="https://pay.lygosapp.com//link/b51a85ee-364a-4f5f-b6fb-bbf24b766362" class="btn-subscribe" target="_blank">
-                        JE M'ABONNE <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <div class="pricing-card popular">
-                    <h3>1 SEMAINE</h3>
-                    <div class="price">25 000fr <span>/ semaine</span></div>
-                    <ul class="feature-list">
-                        <li>Le plus populaire</li>
-                        <li>Couverture complète</li>
-                        <li>Résultats garantis</li>
-                    </ul>
-                    <a href="https://pay.lygosapp.com//link/4dbbbc8d-86f1-4ff8-9cd0-ec5e6c60bcb5" class="btn-subscribe" target="_blank">
-                        JE M'ABONNE <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <div class="pricing-card">
-                    <h3>2 SEMAINES</h3>
-                    <div class="price">35 000fr <span>/ 2 semaines</span></div>
-                    <ul class="feature-list">
-                        <li>Économisez 15 000fr</li>
-                        <li>Suivi prolongé</li>
-                        <li>Analyse approfondie</li>
-                    </ul>
-                    <a href="https://pay.lygosapp.com//link/8189192a-973d-42fd-8753-fe59fdd133f0" class="btn-subscribe" target="_blank">
-                        JE M'ABONNE <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <div class="pricing-card">
-                    <h3>1 MOIS</h3>
-                    <div class="price">55 000fr <span>/ mois</span></div>
-                    <ul class="feature-list">
-                        <li>Le plus économique</li>
-                        <li>Accès complet</li>
-                        <li>Support prioritaire</li>
-                    </ul>
-                    <a href="https://pay.lygosapp.com//link/d6ee9e05-d1fc-413f-bb1f-769f0bbfec6a" class="btn-subscribe" target="_blank">
-                        JE M'ABONNE <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <p>
-                (non renouvelable automatiquement)<br>
-                Pronostics envoyés par e-mail automatiquement après votre inscription (ou le matin vers 10h30 les week-ends et jours fériés)
-            </p>
-        </div>
-        
-        <div class="contact-box">
-            <h3><i class="fas fa-envelope"></i> CONTACT</h3>
-            <p>Pour toute question : <a href="mailto:nathaliedopez360@gmail.com">nathaliedopez360@gmail.com</a></p>
-        </div>
-        
-        <div class="disclaimer">
-            Note : Le turf n'est pas une science exacte. Gérez votre budget avec prudence. C'est nous qui donnons les pronostics, mais c'est Dieu qui donne la victoire.
-        </div>
-    </div>
+    </script>
 </body>
 </html>
