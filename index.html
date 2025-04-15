@@ -373,6 +373,7 @@
             border-left: 5px solid var(--gold);
             padding: 12px;
             border-radius: 10px;
+            position: relative;
         }
 
         .pmu-box h3 {
@@ -413,6 +414,38 @@
 
         .highlight-green {
             background-color: rgba(0,128,0,0.2);
+        }
+
+        /* Styles pour les cases verrouillées */
+        .pmu-box.locked {
+            opacity: 0.7;
+        }
+
+        .pmu-box.locked::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+
+        .pmu-box.locked h3 {
+            color: var(--text-light);
+        }
+
+        .pmu-box.locked .pmu-numbers span {
+            background: rgba(128,128,128,0.2);
+            color: transparent;
+            text-shadow: 0 0 5px rgba(255,255,255,0.3);
+        }
+
+        .fa-lock {
+            margin-left: 5px;
+            color: var(--gold);
+            font-size: 0.8em;
         }
     </style>
 </head>
@@ -536,6 +569,78 @@
                         <h3>Quinté</h3>
                         <div class="pmu-numbers">
                             <span>4</span><span>3</span><span>12</span><span>8</span><span>16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Nouveau tableau (15/04/2025) -->
+            <div class="pmu-section">
+                <h2>EXPERT DU TURF</h2>
+                <div class="date">Date : 15/04/2025</div>
+                
+                <div class="pmu-grid">
+                    <div class="pmu-box highlight-orange">
+                        <h3>Couplé</h3>
+                        <div class="pmu-numbers">
+                            <span>10</span><span>6</span>
+                        </div>
+                    </div>
+
+                    <div class="pmu-box highlight-blue">
+                        <h3>Tiercé</h3>
+                        <div class="pmu-numbers">
+                            <span>10</span><span>6</span><span>14</span>
+                        </div>
+                    </div>
+
+                    <div class="pmu-box highlight-orange">
+                        <h3>Quarté</h3>
+                        <div class="pmu-numbers">
+                            <span>10</span><span>6</span><span>14</span><span>13</span>
+                        </div>
+                    </div>
+
+                    <div class="pmu-box highlight-green">
+                        <h3>Quinté</h3>
+                        <div class="pmu-numbers">
+                            <span>10</span><span>6</span><span>14</span><span>13</span><span>16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Nouveau tableau (16/04/2025) avec cases verrouillées -->
+            <div class="pmu-section">
+                <h2>EXPERT DU TURF</h2>
+                <div class="date">Date : 16/04/2025</div>
+                
+                <div class="pmu-grid">
+                    <div class="pmu-box highlight-orange locked">
+                        <h3>Couplé <i class="fas fa-lock"></i></h3>
+                        <div class="pmu-numbers">
+                            <span>***</span><span>***</span>
+                        </div>
+                    </div>
+
+                    <div class="pmu-box highlight-blue locked">
+                        <h3>Tiercé <i class="fas fa-lock"></i></h3>
+                        <div class="pmu-numbers">
+                            <span>***</span><span>***</span><span>***</span>
+                        </div>
+                    </div>
+
+                    <div class="pmu-box highlight-orange locked">
+                        <h3>Quarté <i class="fas fa-lock"></i></h3>
+                        <div class="pmu-numbers">
+                            <span>***</span><span>***</span><span>***</span><span>***</span>
+                        </div>
+                    </div>
+
+                    <div class="pmu-box highlight-green locked">
+                        <h3>Quinté <i class="fas fa-lock"></i></h3>
+                        <div class="pmu-numbers">
+                            <span>***</span><span>***</span><span>***</span><span>***</span><span>***</span>
                         </div>
                     </div>
                 </div>
