@@ -447,19 +447,54 @@
             color: var(--gold);
             font-size: 0.8em;
         }
+        
+        /* Styles pour le bouton d'affichage des résultats */
+        .show-results-btn {
+            display: block;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--noir);
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px auto;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            width: 300px;
+            text-align: center;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .show-results-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+        }
+        
+        .show-results-btn i {
+            margin-left: 8px;
+        }
+        
+        #resultats {
+            display: none;
+            padding: 0 20px;
+        }
     </style>
 </head>
 <body>
     <div class="content-overlay">
-        <div class="btn-resultats-container" style="text-align: center; margin-top: 20px;">
-            <button id="voirResultatsBtn" class="btn-subscribe" onclick="toggleResultats()">
-                Voir plus résultats
-            </button>
-        </div>
+        <!-- Bouton pour afficher les résultats -->
+        <button class="show-results-btn" onclick="toggleResults()">
+            <i class="fas fa-eye"></i> VOIR LES RÉSULTATS
+        </button>
 
-        <!-- Section cachée pour les résultats (taille réduite) -->
-        <div id="resultats" style="display: none;">
-            <!-- Ancien tableau (12/04/2025) - inchangé -->
+        <!-- Section des résultats (cachée par défaut) -->
+        <div id="resultats">
+            <!-- Ancien tableau (12/04/2025) -->
             <div class="pmu-section">
                 <h2>EXPERT DU TURF</h2>
                 <div class="date">Date : 12/04/2025</div>
@@ -610,10 +645,46 @@
                 </div>
             </div>
             
-            <!-- Nouveau tableau (16/04/2025) avec cases verrouillées -->
+            <!-- Nouveau tableau (16/04/2025) -->
             <div class="pmu-section">
                 <h2>EXPERT DU TURF</h2>
                 <div class="date">Date : 16/04/2025</div>
+                
+                <div class="pmu-grid">
+                    <div class="pmu-box highlight-orange">
+                        <h3>Couplé</h3>
+                        <div class="pmu-numbers">
+                            <span>15</span><span>12</span>
+                        </div>
+                    </div>
+
+                    <div class="pmu-box highlight-blue">
+                        <h3>Tiercé</h3>
+                        <div class="pmu-numbers">
+                            <span>15</span><span>12</span><span>4</span>
+                        </div>
+                    </div>
+
+                    <div class="pmu-box highlight-orange">
+                        <h3>Quarté</h3>
+                        <div class="pmu-numbers">
+                            <span>15</span><span>12</span><span>4</span><span>3</span>
+                        </div>
+                    </div>
+
+                    <div class="pmu-box highlight-green">
+                        <h3>Quinté</h3>
+                        <div class="pmu-numbers">
+                            <span>15</span><span>12</span><span>4</span><span>3</span><span>1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Nouveau tableau (17/04/2025) -->
+            <div class="pmu-section">
+                <h2>EXPERT DU TURF</h2>
+                <div class="date">Date : 17/04/2025</div>
                 
                 <div class="pmu-grid">
                     <div class="pmu-box highlight-orange locked">
@@ -756,16 +827,16 @@
     </div>
 
     <script>
-        function toggleResultats() {
-            var resultatsSection = document.getElementById("resultats");
-            var btn = document.getElementById("voirResultatsBtn");
-
-            if (resultatsSection.style.display === "none") {
-                resultatsSection.style.display = "block";
-                btn.innerHTML = "Voir moins de résultats";
+        function toggleResults() {
+            const resultatsSection = document.getElementById('resultats');
+            const bouton = document.querySelector('.show-results-btn');
+            
+            if (resultatsSection.style.display === 'none' || resultatsSection.style.display === '') {
+                resultatsSection.style.display = 'block';
+                bouton.innerHTML = '<i class="fas fa-eye-slash"></i> MASQUER LES RÉSULTATS';
             } else {
-                resultatsSection.style.display = "none";
-                btn.innerHTML = "Voir plus résultats";
+                resultatsSection.style.display = 'none';
+                bouton.innerHTML = '<i class="fas fa-eye"></i> VOIR LES RÉSULTATS';
             }
         }
     </script>
